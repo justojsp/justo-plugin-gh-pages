@@ -28,7 +28,8 @@ op;var _os = require("os");var _os2 = _interopRequireDefault(_os);var _path = re
   args.push("origin");
   args.push("gh-pages");
 
-  res = _crossSpawn2.default.sync(cmd, args, { stdio: "inherit" });
+  _crossSpawn2.default.sync(cmd, ["push", "origin", "--delete", "gh-pages"]);
+  res = _crossSpawn2.default.sync(cmd, ["subtree", "push", "--prefix", params.src, "origin", "gh-pages"], { stdio: "inherit" });
 
 
   return res.status;}
